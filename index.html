@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flask Firebase Contacts</title>
+</head>
+<body>
+    <h2>📇 Contacts App</h2>
+
+    <form action="/add" method="POST">
+        <input name="firstName" placeholder="First Name" required>
+        <input name="lastName" placeholder="Last Name" required>
+        <input name="email" placeholder="Email" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <hr>
+
+    {% for c in contacts %}
+        <p>
+            <strong>{{ c.firstName }} {{ c.lastName }}</strong><br>
+            {{ c.email }}<br>
+            <a href="/delete/{{ c.id }}">Delete</a>
+        </p>
+        <hr>
+    {% endfor %}
+</body>
+</html>
